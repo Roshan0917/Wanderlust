@@ -1,41 +1,29 @@
-const fetch = require("node-fetch");
+const NodeGeocoder = require("node-geocoder");
 
-async function getCoordinates(location) {
+const options = {
+  provider: "openstreetmap",
+};
+
+const geocoder = NodeGeocoder(options);
+
+const getCoordinates = async (location) => {
+
   try {
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-        location
-      )}&format=json&limit=1`,
-      {
-        headers: {
-          "User-Agent": "WanderlustApp/1.0",
-        },
-      }
-    );
 
-    const text = await response.text();
+    const res = await geocoder.geocode(location);
 
-    let data;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      console.log(`Invalid response for: ${location}`);
-      return null;
-    }
-
-    if (!data.length) return null;
+    if (!res.length) return null;
 
     return {
       type: "Point",
-      coordinates: [
-        parseFloat(data[0].lon),
-        parseFloat(data[0].lat),
-      ],
+      coordinates: [res[0].longitude, res[0].latitude],
     };
+
   } catch (err) {
-    console.log("Geocoding error:", err.message);
+
+    console.log(err);
     return null;
   }
-}
+};
 
 module.exports = getCoordinates;
