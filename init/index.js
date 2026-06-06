@@ -1,18 +1,22 @@
 const mongoose = require("mongoose");
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
 const User = require("../models/user.js");
+const Review = require("../models/review.js");
 
-require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-const MONGO_URL = process.env.ATLASDB_URL;
-
+// Connect to DB and then initialize data
 main()
   .then(() => {
-    console.log("connected to DB");
+    console.log("Connected to DB");
+    initDB();
   })
   .catch((err) => {
-    console.log(err);
+    console.log("DB Connection Error:", err);
   });
 
 async function main() {
@@ -20,26 +24,34 @@ async function main() {
 }
 
 const initDB = async () => {
+  try {
 
-  await Listing.deleteMany({});
-  await User.deleteMany({});
+    // Delete old data
+    await Listing.deleteMany({});
+    await Review.deleteMany({});
+    await User.deleteMany({});
 
-  const user = new User({
-    email: "demo@gmail.com",
-    username: "demoUser",
-  });
+    // Create demo user
+    const user = new User({
+      email: "demo@gmail.com",
+      username: "demoUser",
+    });
 
-  const registeredUser = await User.register(user, "123456");
+    const registeredUser = await User.register(user, "123456");
 
-  const updatedData = initData.data.map((obj) => ({
-    ...obj,
-    owner: registeredUser._id,
-  }));
+    // Add owner to every listing
+    const updatedData = initData.data.map((obj) => ({
+      ...obj,
+      owner: registeredUser._id,
+    }));
 
-  await Listing.insertMany(updatedData);
+    // Insert listings
+    await Listing.insertMany(updatedData);
 
-  console.log("data was initialized");
-  process.exit();
+    console.log("Data was initialized successfully!");
+    process.exit();
+
+  } catch (err) {
+    console.log("Initialization Error:", err);
+  }
 };
-
-initDB();

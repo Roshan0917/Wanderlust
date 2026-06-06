@@ -20,8 +20,8 @@ const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
-const MONGO_URL = process.env.ATLASDB_URL;
+const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL = process.env.ATLASDB_URL;
 
 
 main()
@@ -86,14 +86,6 @@ app.use((req,res,next)=>{
     next();
 });
 
-// app.get("/fakeUser",async(req,res)=>{
-//     let user = new User({
-//         email: "fake@example.com",
-//         username:"fakeUser12",
-//     });
-//    const registeredUser = await User.register(user,"password");   
-//    res.send(registeredUser);
-// });
 
 app.get("/", (req, res) => {
     res.redirect("/listings");
@@ -120,19 +112,3 @@ app.listen(8080,()=>
 {
     console.log("server is 8080");
 })
-
-
-// app.get("/test",async (req,res)=>{
-//   let samapleListing = new Listing( {
-//     title: "My New Villa",
-//     description :"By The Beach",
-//     price:1200,
-//     location: "India",
-//   } );
-
-//  await samapleListing.save();
-//  console.log("Sample Was Saved");
-//  res.send("Succesfully Saved");
-// });
-
-

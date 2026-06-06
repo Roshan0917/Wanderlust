@@ -4,10 +4,10 @@ const listingSchema = Joi.object({
   listing: Joi.object({
     title: Joi.string().required(),
     description: Joi.string(),
-
     price: Joi.number().required(),
     location: Joi.string().required(),
     country: Joi.string().required(),
+    category: Joi.string().required()   // ✅ ADD THIS LINE
   }).required(),
 });
 
