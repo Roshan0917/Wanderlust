@@ -52,7 +52,7 @@ https://wanderlust-xmox.onrender.com
 ## ⚙️ Run Locally
 
 ```bash
-git clone https://github.com/Roshan0917/wanderlust.git 
+git clone https://github.com/Roshan0917/Wanderlust.git 
 cd wanderlust
 npm install
 
