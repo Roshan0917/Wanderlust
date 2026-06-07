@@ -33,23 +33,13 @@ A full-stack travel listing platform where users can create, explore, and manage
 ---
 
 ## 🔗 Live Demo
-https://your-deployment-link.onrender.com
+https://wanderlust-xmox.onrender.com
 
 ---
 
 ## ⚙️ Run Locally
 
 ```bash
-git clone https://github.com/your-username/wanderlust.git
+git clone https://github.com/Roshan0917/wanderlust.git 
 cd wanderlust
 npm install
-
----
-
-## 👨‍💻 Author
-Roshan
-
----
-
-## ⭐ Support
-If you like this project, give it a ⭐ on GitHub
