@@ -43,3 +43,14 @@ https://wanderlust-xmox.onrender.com
 git clone https://github.com/Roshan0917/wanderlust.git 
 cd wanderlust
 npm install
+
+```
+---
+
+## 👨‍💻 Author
+Roshan
+
+---
+
+## ⭐ Support
+If you like this project, give it a ⭐ on GitHub
