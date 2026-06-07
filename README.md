@@ -24,11 +24,23 @@ A full-stack travel listing platform where users can create, explore, and manage
 
 ## 📸 Screenshots
 
-> Add screenshots in `/screenshots` folder
+### Home Page
+![Home](./assets/screenshots/home.png)
 
-- Home Page  
-- Listings Page  
-- Create Listing Page  
+
+### SignUp Page
+![SignUp](./assets/screenshots/signup.png)
+
+### Login Page
+![Login](./assets/screenshots/login.png)
+
+
+### New Listing Page
+![New Listing](./assets/screenshots/newListing.png)
+
+### Edit Page
+![Edit](./assets/screenshots/editListing.png)
+
 
 ---
 
