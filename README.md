@@ -1,15 +1,15 @@
-# 🌍 Wanderlust
+# 🌍 Wanderlust - Travel Listing Web App
 
-A full-stack travel listing web application built using Node.js, Express, MongoDB, and EJS.
+A full-stack travel listing platform where users can create, explore, and manage travel stays.
 
 ---
 
 ## 🚀 Features
-- User authentication
-- Create & manage travel listings
-- Image uploads
+- User authentication (login / signup)
+- Create, edit & delete listings
+- Image upload support
 - MongoDB database integration
-- Responsive UI
+- Responsive UI design
 
 ---
 
@@ -22,9 +22,34 @@ A full-stack travel listing web application built using Node.js, Express, MongoD
 
 ---
 
-## ⚙️ Installation
+## 📸 Screenshots
+
+> Add screenshots in `/screenshots` folder
+
+- Home Page  
+- Listings Page  
+- Create Listing Page  
+
+---
+
+## 🔗 Live Demo
+https://your-deployment-link.onrender.com
+
+---
+
+## ⚙️ Run Locally
 
 ```bash
 git clone https://github.com/your-username/wanderlust.git
 cd wanderlust
 npm install
+
+---
+
+## 👨‍💻 Author
+Roshan
+
+---
+
+## ⭐ Support
+If you like this project, give it a ⭐ on GitHub
