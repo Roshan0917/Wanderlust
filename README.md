@@ -48,9 +48,32 @@ npm install
 ---
 
 ## 👨‍💻 Author
-Roshan
+
+- Name: Roshan   
 
 ---
 
 ## ⭐ Support
-If you like this project, give it a ⭐ on GitHub
+
+If you like this project:
+- ⭐ Star the repository
+- 🍴 Fork it
+- 🔔 Follow me on GitHub
+
+---
+
+## 💡 What I Learned
+- Full-stack CRUD application development
+- Authentication & authorization system
+- MongoDB database integration
+- MVC architecture in Node.js
+- File upload handling
+- Deployment basics
+
+---
+
+## 📌 Note
+
+- This project is part of my full-stack web development learning journey.
+
+---
