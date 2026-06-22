@@ -5,7 +5,7 @@ const { required } = require("joi");
 const listingSchema =new Schema({
     title :{
         type :String,
-        require:true,
+        required:true,
     },
     description: String,
 

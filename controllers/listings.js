@@ -34,7 +34,7 @@ module.exports.showListing = async(req,res)=>{
   }
 
   newListing.owner = req.user._id;
-
+console.log("LOCATION:", newListing.location);
  const geometry = await getCoordinates(newListing.location);
 console.log("GEOMETRY:", geometry);
 
