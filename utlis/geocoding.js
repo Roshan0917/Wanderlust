@@ -1,29 +1,21 @@
-const NodeGeocoder = require("node-geocoder");
-
-const options = {
-  provider: "openstreetmap",
-};
-
-const geocoder = NodeGeocoder(options);
+const axios = require("axios");
 
 const getCoordinates = async (location) => {
   try {
 
-    const res = await geocoder.geocode(location);
+    const url = `https://api.maptiler.com/geocoding/${encodeURIComponent(location)}.json?key=${process.env.MAPTILER_API_KEY}`;
 
-    console.log("LOCATION:", location);
-    console.log("GEOCODER RESPONSE:", res);
+    const response = await axios.get(url);
 
-    if (!res.length) return null;
+    const coordinates = response.data.features[0].geometry.coordinates;
 
     return {
       type: "Point",
-      coordinates: [res[0].longitude, res[0].latitude],
+      coordinates: coordinates,
     };
 
   } catch (err) {
-
-    console.log("GEOCODER ERROR:", err);
+    console.log("GEOCODING ERROR:", err);
     return null;
   }
 };
