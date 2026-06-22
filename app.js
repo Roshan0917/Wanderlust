@@ -19,9 +19,13 @@ const User = require("./models/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const wishlistRoutes = require("./routes/wishlist");
 
-// const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
-const MONGO_URL = process.env.ATLASDB_URL;
+const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL = process.env.ATLASDB_URL;
+
+
+
 
 
 main()
@@ -94,6 +98,7 @@ app.get("/", (req, res) => {
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
+app.use("/wishlist", wishlistRoutes);
 
 // 404 handler
 app.use((req, res, next) => {

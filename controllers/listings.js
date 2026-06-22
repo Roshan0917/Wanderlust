@@ -23,31 +23,38 @@ module.exports.showListing = async(req,res)=>{
       res.render("listings/show.ejs",{listing});
     };  
 
-  module.exports.createListing = async (req, res) => {
-  const newListing = new Listing(req.body.listing);
+ module.exports.createListing = async (req, res) => {
+      console.log(req.files);
+    const newListing = new Listing(req.body.listing);
 
-  if (req.file) {
-    newListing.image = {
-      url: req.file.path,
-      filename: req.file.filename,
-    };
-  }
+    if (req.files && req.files.length > 0) {
 
-  newListing.owner = req.user._id;
-console.log("LOCATION:", newListing.location);
-const geometry = await getCoordinates(newListing.location);
+        newListing.images = req.files.map(file => ({
+            url: file.path,
+            filename: file.filename
+        }));
 
-if (!geometry) {
-  req.flash("error", "Could not find coordinates for this location.");
-  return res.redirect("/listings/new");
-}
+    }
 
-newListing.geometry = geometry;
-await newListing.save();
+    newListing.owner = req.user._id;
 
-  req.flash("success", "Successfully made a new listing");
-  res.redirect("/listings");
+    const geometry = await getCoordinates(newListing.location);
+
+    if (!geometry) {
+        req.flash("error", "Could not find coordinates for this location.");
+        return res.redirect("/listings/new");
+    }
+
+    newListing.geometry = geometry;
+
+    await newListing.save();
+
+    req.flash("success", "Successfully made a new listing");
+
+    res.redirect("/listings");
 };
+
+
     module.exports.editListing = async (req,res)=>{
     let {id}=req.params;
     const listing = await Listing.findById(id);
@@ -61,18 +68,30 @@ await newListing.save();
     };
 
     module.exports.updateListing = async (req,res)=>{
-        let {id}=req.params;
-         
-      let listing = await Listing.findByIdAndUpdate(id,{...req.body.listing});
-      if(typeof req.file !== "undefined"){
-      let url = req.file.path;
-      let filename = req.file.filename;
-      listing.image = { url, filename };
-      await listing.save(); 
+    let {id} = req.params;
+
+    let listing = await Listing.findByIdAndUpdate(
+        id,
+        { ...req.body.listing },
+        { new: true }
+    );
+
+    if(req.files.length > 0){
+
+        let imgs = req.files.map(file => ({
+            url: file.path,
+            filename: file.filename
+        }));
+
+        listing.images.push(...imgs);
+
+        await listing.save();
     }
-      req.flash("success","Successfully updated the listing");
-        res.redirect(`/listings/${id}`);
-    }; 
+
+    req.flash("success","Successfully updated the listing");
+
+    res.redirect(`/listings/${id}`);
+};
 
     module.exports.destroyListing = async(req,res)=>{
         let{id}=req.params;

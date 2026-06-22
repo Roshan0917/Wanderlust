@@ -14,9 +14,16 @@ const listingSchema =new Schema({
 },
 
     image: {
-      url: String,
-      filename: String,
+    url: String,
+    filename: String
 },
+
+images: [
+    {
+        url: String,
+        filename: String
+    }
+],
 geometry: {
   type: {
     type: String,

@@ -187,11 +187,21 @@
 
             <div class="card col listing-card">
 
-                <img 
-                src="<%= listing.image.url %>" 
-                class="card-img-top" 
-                alt="listing_image"
-                style="height:20rem; object-fit:cover;"">
+                <% if(listing.images && listing.images.length > 0){ %>
+
+<img
+src="<%= listing.images[0].url %>"
+class="card-img-top"
+alt="listing image">
+
+<% } else { %>
+
+<img
+src="<%= listing.image.url %>"
+class="card-img-top"
+alt="listing image">
+
+<% } %>
 
                 <div class="card-img-overlay"></div>
 

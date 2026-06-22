@@ -1,92 +1,113 @@
-   <% layout("/layouts/boilerplate") %>
-   <div class="row mt-3">
-      <div class="col-8 offset-2">
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
     <h3>Create A New Listing</h3>
- <form method= "post" action="/listings" novalidate class="needs-validation" 
-   enctype="multipart/form-data" >
-   <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
-      <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required>
-         <div class="valid-feedback">Tiltes Looks Good!</div>
-   </div>
-   <br>
-   <div>
-             <label for="description" class="form-label">Description</label>
-          <textarea name="listing[description]"class="form-control"placeholder="enter hotel description" required></textarea>
-     <div class="invalid-feedback">Description must be short.</div>
-         </div>
-   <br>
-        <div class="mb-3">
-           <label for="image" class="form-label"> Upload Listing Image </label>
-            <input name="listing[image]"type="file" class="form-control"
-            required/>
-         
-       </div>
-       <br>
-       <div class="row">
-    <div class="mb-3 col-md-4">
-        <label for="price" class="form-label">Price</label>
+    <form
+      method="post"
+      action="/listings"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
         <input
+          name="listing[title]"
+          placeholder="enter title"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Titles Looks Good!</div>
+      </div>
+      <br />
+      <div>
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          placeholder="enter hotel description"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Description must be short.</div>
+      </div>
+      <br />
+      <div class="mb-3">
+        <label for="image" class="form-label"> Upload Listing Image </label>
+        <input
+          type="file"
+          name="listing[images]"
+          class="form-control"
+          multiple
+        />
+      </div>
+      <br />
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input
             name="listing[price]"
             placeholder="Enter price"
             class="form-control"
             required
-        />
-        <div class="invalid-feedback">Price should be valid</div>
-    </div>
+          />
+          <div class="invalid-feedback">Price should be valid</div>
+        </div>
 
-    <div class="mb-3 col-md-8">
-        <label for="country" class="form-label">Country</label>
-        <input
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input
             name="listing[country]"
             placeholder="Enter country"
             type="text"
             class="form-control"
             required
+          />
+          <div class="invalid-feedback">Country should be valid</div>
+        </div>
+      </div>
+      <br />
+      <div>
+        <label for="location" class="form-label">Location</label>
+        <input
+          name="listing[location]"
+          placeholder="enter location"
+          type="text"
+          class="form-control"
+          required
         />
-        <div class="invalid-feedback">Country should be valid</div>
-    </div>
-</div>
-       <br>
-        <div>
-           <label for="location" class="form-label">Location</label>
-             <input name="listing[location]" placeholder="enter location" type="text" class="form-control" required>
-                 <div class="invalid-feedback">Location should be valid</div>
-            </div>
-       <br><br>
-       <div class="mb-3">
+        <div class="invalid-feedback">Location should be valid</div>
+      </div>
+      <br /><br />
+      <div class="mb-3">
+        <label class="form-label">Category</label>
 
-    <label class="form-label">Category</label>
+        <select name="listing[category]" class="form-select">
+          <option value="Trending">Trending</option>
 
-    <select name="listing[category]" class="form-select">
+          <option value="Rooms">Rooms</option>
 
-        <option value="Trending">Trending</option>
+          <option value="Iconic Cities">Iconic Cities</option>
 
-        <option value="Rooms">Rooms</option>
+          <option value="Mountains">Mountains</option>
 
-        <option value="Iconic Cities">Iconic Cities</option>
+          <option value="Beaches">Beaches</option>
 
-        <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
 
-        <option value="Beaches">Beaches</option>
+          <option value="Farms">Farms</option>
 
-        <option value="Castles">Castles</option>
+          <option value="Arctic">Arctic</option>
 
-        <option value="Farms">Farms</option>
+          <option value="Casinos">Casinos</option>
 
-        <option value="Arctic">Arctic</option>
+          <option value="Swimming Pool">Swimming Pool</option>
 
-        <option value="Casinos">Casinos</option>
-
-        <option value="Swimming Pool">Swimming Pool</option>
-
-        <option value="River">River</option>
-
-    </select>
-
-</div>
-     <button class="btn btn-dark add-btn mt-3">Add</button>
-     <br><br>
- </form>
-</div>
+          <option value="River">River</option>
+        </select>
+      </div>
+      <button class="btn btn-dark add-btn mt-3">Add</button>
+      <br /><br />
+    </form>
+  </div>
 </div>

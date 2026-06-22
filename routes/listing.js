@@ -42,13 +42,24 @@ router.get("/search", async (req, res) => {
     res.render("listings/index.ejs", { allListings });
 });
 
+     // MY LISTING ROUTES
+router.get("/mylistings", isLoggedIn, async (req, res) => {
+
+    const listings = await Listing.find({
+        owner: req.user._id
+    });
+
+    res.render("listings/mylistings.ejs", { listings });
+
+});
+
 
 // INDEX ROUTE
 router.route("/")
 .get(wrapAsync(listingController.index))
 .post(
     isLoggedIn,
-    upload.single('listing[image]'),
+    upload.array("listing[images]", 5),
     validateListing,
     wrapAsync(listingController.createListing)
 );
@@ -69,7 +80,7 @@ router.route("/:id")
 .put(
     isLoggedIn,
     isOwner,
-    upload.single('listing[image]'),
+    upload.array("listing[images]", 5),
     validateListing,
     wrapAsync(listingController.updateListing)
 )
