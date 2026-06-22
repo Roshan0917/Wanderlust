@@ -35,12 +35,15 @@ module.exports.showListing = async(req,res)=>{
 
   newListing.owner = req.user._id;
 console.log("LOCATION:", newListing.location);
- const geometry = await getCoordinates(newListing.location);
-console.log("GEOMETRY:", geometry);
+const geometry = await getCoordinates(newListing.location);
+
+if (!geometry) {
+  req.flash("error", "Could not find coordinates for this location.");
+  return res.redirect("/listings/new");
+}
 
 newListing.geometry = geometry;
-console.log("NEW LISTING WITH GEOMETRY:", newListing);
-  await newListing.save();
+await newListing.save();
 
   req.flash("success", "Successfully made a new listing");
   res.redirect("/listings");
