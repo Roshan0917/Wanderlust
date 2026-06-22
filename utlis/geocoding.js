@@ -7,10 +7,12 @@ const options = {
 const geocoder = NodeGeocoder(options);
 
 const getCoordinates = async (location) => {
-
   try {
 
     const res = await geocoder.geocode(location);
+
+    console.log("LOCATION:", location);
+    console.log("GEOCODER RESPONSE:", res);
 
     if (!res.length) return null;
 
@@ -21,7 +23,7 @@ const getCoordinates = async (location) => {
 
   } catch (err) {
 
-    console.log(err);
+    console.log("GEOCODER ERROR:", err);
     return null;
   }
 };
