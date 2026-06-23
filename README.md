@@ -1,109 +1,176 @@
-# 🌍 Wanderlust - Travel Listing Web App
+# 🌍 Wanderlust
 
-A full-stack travel listing platform where users can create, explore, and manage travel stays.
+Wanderlust is a full-stack travel accommodation platform inspired by Airbnb. Users can explore listings, create their own properties, manage bookings, maintain wishlists, and enjoy both Light and Dark themes.
 
 ---
 
-## 🚀 Features
-- User authentication (login / signup)
-- Create, edit & delete listings
-- Image upload support
-- MongoDB database integration
-- Responsive UI design
+## ✨ Features
+
+* 🔐 User Authentication (Signup/Login/Logout)
+* 🏡 Create, Edit and Delete Listings
+* ❤️ Wishlist Functionality
+* 📅 Booking Management
+* 👤 Profile Dropdown Menu
+* 🌙 Dark Mode / ☀️ Light Mode
+* 📍 Interactive Maps
+* ⭐ Ratings & Reviews
+* 📱 Responsive Design
+* 🔔 Flash Messages and Validation
 
 ---
 
 ## 🛠 Tech Stack
-- Node.js
-- Express.js
-- MongoDB Atlas
-- EJS
-- Bootstrap
+
+### Frontend
+
+* HTML
+* CSS
+* Bootstrap 5
+* EJS
+* JavaScript
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+* Mongoose
+
+### Authentication
+
+* Passport.js
+* Express Session
+
+### Other Tools
+
+* Cloudinary
+* Multer
+* MapLibre
+* Joi Validation
 
 ---
-
-# 🌍 Wanderlust
-
-A full-stack travel accommodation platform inspired by Airbnb.
-
-## ✨ Features
-- User Authentication
-- Create, Edit & Delete Listings
-- Wishlist Functionality
-- Booking System
-- Dark Mode / Light Mode
-- Responsive UI
 
 ## 📸 Screenshots
 
-### Home Page
-![Home](screenshots/homepage.png)
+### 🏠 Home Page
 
-### Sign Up
-![Sign Up](screenshots/signUp.png)
+![Home Page](assets/screenshots/homepage.png)
 
-### Login
-![Login](screenshots/login.png)
+### 🌙 Dark Mode
 
-### Create Listing
-![Create Listing](screenshots/createListings.png)
+![Dark Mode](assets/screenshots/homepage_DarkMode.png)
 
-### Edit Listing
-![Edit Listing](screenshots/editListings.png)
+### 🔐 Sign Up Page
 
-### Wishlist
-![Wishlist](screenshots/wishlists.png)
+![Sign Up](assets/screenshots/signUp.png)
 
-### My Bookings
-![Bookings](screenshots/myBookings.png)
+### 🔑 Login Page
 
-### Dark Mode
-![Dark Mode](screenshots/homepage_DarkMode.png)
+![Login](assets/screenshots/login.png)
+
+### ➕ Create Listing
+
+![Create Listing](assets/screenshots/createListings.png)
+
+### ✏️ Edit Listing
+
+![Edit Listing](assets/screenshots/editListings.png)
+
+### 🏡 Listing Details
+
+![Listing Details](assets/screenshots/showListings.png)
+
+### ❤️ Wishlist
+
+![Wishlist](assets/screenshots/wishlists.png)
+
+### 📅 My Bookings
+
+![My Bookings](assets/screenshots/myBookings.png)
+
+### 📋 My Listings
+
+![My Listings](assets/screenshots/myListings.png)
 
 ---
 
-## 🔗 Live Demo
+## 🚀 Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Roshan0917/Wanderlust.git 
+```
+
+### Move into the project folder
+
+```bash
+cd wanderlust
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Create a `.env` file and add:
+
+```env
+ATLASDB_URL=your_mongodb_connection_string
+CLOUD_NAME=your_cloudinary_name
+CLOUD_API_KEY=your_cloudinary_api_key
+CLOUD_API_SECRET=your_cloudinary_secret
+MAP_TOKEN=your_map_token
+SECRET=your_session_secret
+```
+
+### Start the server
+
+```bash
+node app.js
+```
+
+Open:
+
+```
+http://localhost:8080
+```
+
+---
+
+## 🌐 Live Demo
+
 https://wanderlust-xmox.onrender.com
 
 ---
 
-## ⚙️ Run Locally
-
-```bash
-git clone https://github.com/Roshan0917/Wanderlust.git 
-cd wanderlust
-npm install
+## 📂 Project Structure
 
 ```
+Wanderlust
+│
+├── models
+├── routes
+├── controllers
+├── views
+├── public
+├── utils
+├── assets/screenshots
+├── app.js
+└── README.md
+```
+
 ---
 
 ## 👨‍💻 Author
 
-- Name: Roshan   
+**Roshan**
 
 ---
 
-## ⭐ Support
+### ⭐ If you like this project, don't forget to give it a star!
 
-If you like this project:
-- ⭐ Star the repository
-- 🍴 Fork it
-- 🔔 Follow me on GitHub
-
----
-
-## 💡 What I Learned
-- Full-stack CRUD application development
-- Authentication & authorization system
-- MongoDB database integration
-- MVC architecture in Node.js
-- File upload handling
-- Deployment basics
-
----
-
-## 📌 Note
-
-- This project is part of my full-stack web development learning journey.
-
----
