@@ -14,18 +14,25 @@
 <script src="https://unpkg.com/maplibre-gl@^5.24.0/dist/maplibre-gl.js"></script>
 <link href="https://unpkg.com/maplibre-gl@^5.24.0/dist/maplibre-gl.css" rel="stylesheet" />
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+
   <%- include("../includes/navbar.ejs") %>
 
-    <div class="container">
-      <%- include("../includes/flash.ejs") %>
-       <%-body %></div>
-  
-    <%- include("../includes/footer.ejs") %>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"
-    ></script>
-      <script src="/js/script.js"></script>
-      <script src="/js/theme.js"></script>
-    </body>
+  <div class="container flex-grow-1">
+    <%- include("../includes/flash.ejs") %>
+    <%- body %>
+  </div>
+
+  <%- include("../includes/footer.ejs") %>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous">
+  </script>
+
+  <script src="/js/script.js"></script>
+  <script src="/js/theme.js"></script>
+
+</body>
 </html>

@@ -1,3 +1,5 @@
+
+
 /* =========================
    GOOGLE FONT + BASE
    ========================= */
@@ -600,7 +602,7 @@ body.dark-mode{
 }
 
 .dark-mode .remove-btn{
-    background: #2b2b2b;
+    background: #ff385c;
 }
 
 /* =========================
@@ -661,19 +663,45 @@ body.dark-mode{
     font-weight: 700;
 }
 
-.remove-btn{
-    border: none;
-    background: #222;
+.remove-btn {
+    background: #ff385c;
     color: white;
-    padding: .75rem 1.2rem;
-    border-radius: 30px;
-    transition: .3s ease;
+    border: 2px solid solid;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 56, 92, 0.15);
 }
 
-.remove-btn:hover{
-    background: #fe424d;
+/* Hover effect */
+.remove-btn:hover {
+    background: #e63252;  /* slightly darker shade */
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(254,66,77,.3);
+    box-shadow: 0 8px 20px rgba(255, 56, 92, 0.35);
+}
+
+.remove-btn.outline {
+    background: white;
+    color: #ff385c;
+    border: 2px solid #ff385c;
+}
+
+.remove-btn.outline:hover {
+    background: #ff385c;
+    color: white;
+}
+
+/* DARK MODE CLEAN VERSION */
+.dark-mode .remove-btn {
+    background: #ff385c;
+    color: white;
+}
+
+/* hover same consistent feel */
+.dark-mode .remove-btn:hover {
+    background: #e63252;
 }
 
 .dark-mode .wishlist-card{
@@ -691,9 +719,6 @@ body.dark-mode{
     background: rgba(30,30,30,.95);
 }
 
-.dark-mode .remove-btn{
-    background: #2c2c2c;
-}
 
 .owner-actions{
     display: flex;
