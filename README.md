@@ -65,7 +65,7 @@ Wanderlust is a full-stack travel accommodation platform inspired by Airbnb. Use
 
 ### 🔐 Sign Up Page
 
-![Sign Up](assets/screenshots/signUp.png)
+![Sign Up](assets/screenshots/signup.png)
 
 ### 🔑 Login Page
 
@@ -102,7 +102,7 @@ Wanderlust is a full-stack travel accommodation platform inspired by Airbnb. Use
 ### Clone the repository
 
 ```bash
-git clone https://github.com/Roshan0917/Wanderlust.git 
+https://github.com/Roshan0917/Wanderlust.git 
 ```
 
 ### Move into the project folder
