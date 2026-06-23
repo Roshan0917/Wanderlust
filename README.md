@@ -22,25 +22,43 @@ A full-stack travel listing platform where users can create, explore, and manage
 
 ---
 
+# 🌍 Wanderlust
+
+A full-stack travel accommodation platform inspired by Airbnb.
+
+## ✨ Features
+- User Authentication
+- Create, Edit & Delete Listings
+- Wishlist Functionality
+- Booking System
+- Dark Mode / Light Mode
+- Responsive UI
+
 ## 📸 Screenshots
 
 ### Home Page
-![Home](./assets/screenshots/home.png)
+![Home](screenshots/homepage.png)
 
+### Sign Up
+![Sign Up](screenshots/signUp.png)
 
-### SignUp Page
-![SignUp](./assets/screenshots/signup.png)
+### Login
+![Login](screenshots/login.png)
 
-### Login Page
-![Login](./assets/screenshots/login.png)
+### Create Listing
+![Create Listing](screenshots/createListings.png)
 
+### Edit Listing
+![Edit Listing](screenshots/editListings.png)
 
-### New Listing Page
-![New Listing](./assets/screenshots/newListing.png)
+### Wishlist
+![Wishlist](screenshots/wishlists.png)
 
-### Edit Page
-![Edit](./assets/screenshots/editListing.png)
+### My Bookings
+![Bookings](screenshots/myBookings.png)
 
+### Dark Mode
+![Dark Mode](screenshots/homepage_DarkMode.png)
 
 ---
 
