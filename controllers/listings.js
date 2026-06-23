@@ -55,17 +55,31 @@ module.exports.showListing = async(req,res)=>{
 };
 
 
-    module.exports.editListing = async (req,res)=>{
-    let {id}=req.params;
+    module.exports.editListing = async (req, res) => {
+
+    let { id } = req.params;
     const listing = await Listing.findById(id);
-     if(!listing){
-            req.flash("error","Cannot find that listing");
-            return res.redirect("/listings");
-          }
-        let originalUrl = listing.image.url;
-        originalUrl = originalUrl.replace("/upload", "/upload/h_300,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                w_250");
-    res.render("listings/edit.ejs",{listing, originalUrl});
-    };
+
+    if (!listing) {
+        req.flash("error", "Cannot find that listing");
+        return res.redirect("/listings");
+    }
+
+    let originalUrl = "";
+
+    if (listing.images && listing.images.length > 0) {
+        originalUrl = listing.images[0].url;
+        originalUrl = originalUrl.replace(
+            "/upload",
+            "/upload/h_300,w_250"
+        );
+    }
+
+    res.render("listings/edit.ejs", {
+        listing,
+        originalUrl
+    });
+};
 
     module.exports.updateListing = async (req,res)=>{
     let {id} = req.params;

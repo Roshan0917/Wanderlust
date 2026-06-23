@@ -11,16 +11,18 @@ router.post("/add/:id", async (req, res) => {
     }
 
     await user.save();
-    res.redirect("/listings");
+
+    res.redirect(req.get("Referrer") || "/listings");
 });
 
 // ❌ REMOVE FROM WISHLIST
 router.post("/remove/:id", async (req, res) => {
+
     await User.findByIdAndUpdate(req.user._id, {
         $pull: { wishlist: req.params.id }
     });
 
-    res.redirect("/wishlist");
+    res.redirect(req.get("Referrer") || "/wishlist");
 });
 
 // 📄 SHOW WISHLIST PAGE

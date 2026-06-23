@@ -20,10 +20,11 @@ const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 const wishlistRoutes = require("./routes/wishlist");
+const legalRoutes = require("./routes/legal");
+const bookingRoutes = require("./routes/booking");
 
-// const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
-const MONGO_URL = process.env.ATLASDB_URL;
-
+const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL = process.env.ATLASDB_URL;
 
 
 
@@ -83,12 +84,19 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req,res,next)=>{
+app.use(async (req, res, next) => {
+
+    if(req.user){
+        await req.user.populate("wishlist");
+    }
+
     res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");  
-    res.locals.currentUser = req.user; // Make the authenticated user available in all views
+    res.locals.error = req.flash("error");
+    res.locals.currentUser = req.user;
+
     next();
 });
+
 
 
 app.get("/", (req, res) => {
@@ -99,6 +107,8 @@ app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
 app.use("/wishlist", wishlistRoutes);
+app.use("/", legalRoutes);
+app.use("/bookings", bookingRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
